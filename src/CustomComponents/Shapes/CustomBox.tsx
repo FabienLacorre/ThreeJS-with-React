@@ -1,19 +1,16 @@
 import { useRef } from "react";
 import { Mesh } from "three";
-import { CustomShapeType } from "../../Types/CustomShapes";
+import { CustomBoxProps, CustomShapeType } from "./Types";
 import { CustomMeshStandardMaterial } from "../Material/CustomMeshStandardMaterial";
+import { CustomMesh } from "./Mesh";
 
-interface CustomBoxProps {
-  // width , height , depth
-  args: [number, number, number];
-}
 export const CustomBox = (props: CustomBoxProps & CustomShapeType) => {
   const ref = useRef<Mesh>(null);
 
   return (
-    <mesh ref={ref}>
+    <CustomMesh ref={ref}>
       <boxGeometry args={props.args} />
       <CustomMeshStandardMaterial />
-    </mesh>
+    </CustomMesh>
   );
 };

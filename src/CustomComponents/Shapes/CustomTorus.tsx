@@ -1,19 +1,16 @@
 import { useRef } from "react";
 import { Mesh } from "three";
-import { CustomShapeType } from "../../Types/CustomShapes";
+import { CustomShapeType, CustomTorusProps } from "./Types";
 import { CustomMeshStandardMaterial } from "../Material/CustomMeshStandardMaterial";
+import { CustomMesh } from "./Mesh";
 
-interface CustomTorusProps {
-  // radius , tube , radialSegments , tubularSegments
-  args: [number, number, number, number];
-}
 export const CustomTorus = (props: CustomTorusProps & CustomShapeType) => {
   const ref = useRef<Mesh>(null);
 
   return (
-    <mesh ref={ref}>
+    <CustomMesh ref={ref} position={[0, 0, -10]}>
       <torusGeometry args={props.args} />
       <CustomMeshStandardMaterial />
-    </mesh>
+    </CustomMesh>
   );
 };

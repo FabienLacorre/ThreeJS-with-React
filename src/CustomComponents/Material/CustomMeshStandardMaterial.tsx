@@ -1,14 +1,19 @@
-import { CustomMeshStandardMaterialType } from "../../Types/CustomShapes";
 import {
   DEFAULT_METALNESS,
   DEFAULT_ROUGHNESS,
   DEFAULT_WIREFRAME,
   DEFAULT_EMISSIVE,
-  DEFAULT_COLOR
+  DEFAULT_COLOR,
 } from "./utils";
 
+export interface CustomMeshStandardMaterialProps {
+  metalness?: number;
+  roughness?: number;
+  wireframe?: boolean;
+}
+
 export const CustomMeshStandardMaterial = (
-  props: CustomMeshStandardMaterialType
+  props: CustomMeshStandardMaterialProps
 ) => {
   return (
     <meshStandardMaterial
