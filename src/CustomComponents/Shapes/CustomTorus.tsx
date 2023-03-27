@@ -8,7 +8,7 @@ export const CustomTorus = (props: CustomTorusProps & CustomShapeType) => {
   const ref = useRef<Mesh>(null);
 
   return (
-    <CustomMesh ref={ref} position={[0, 0, -10]}>
+    <CustomMesh ref={ref} position={props.position}>
       <torusGeometry args={props.args} />
       <CustomMeshStandardMaterial />
     </CustomMesh>

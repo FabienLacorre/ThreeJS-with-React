@@ -8,7 +8,7 @@ export const CustomBox = (props: CustomBoxProps & CustomShapeType) => {
   const ref = useRef<Mesh>(null);
 
   return (
-    <CustomMesh ref={ref}>
+    <CustomMesh ref={ref} position={props.position}>
       <boxGeometry args={props.args} />
       <CustomMeshStandardMaterial />
     </CustomMesh>

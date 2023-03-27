@@ -10,7 +10,7 @@ export const CustomOctahedron = (
   const ref = useRef<Mesh>(null);
 
   return (
-    <CustomMesh ref={ref}>
+    <CustomMesh ref={ref} position={props.position}>
       <octahedronGeometry args={props.args} />
       <CustomMeshStandardMaterial />
     </CustomMesh>
