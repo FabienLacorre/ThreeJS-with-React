@@ -1,26 +1,42 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Canvas } from "@react-three/fiber";
+import "./App.css";
+import { CustomOrbitControls } from "./CustomComponents/Cameras/OrbitControls";
+import { CustomAmbientLight } from "./CustomComponents/Lights/AmbientLight";
+import { CustomDirectionalLight } from "./CustomComponents/Lights/DirectionalLight";
+import { CustomBox } from "./CustomComponents/Shapes/Box";
+import { CustomOctahedron } from "./CustomComponents/Shapes/Octahedron";
+import { CustomTorus } from "./CustomComponents/Shapes/Torus";
+// import { useControls } from "leva";
 
-function App() {
+const LightsTest = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <>
+      {/* X */}
+      <CustomDirectionalLight color="red" position={[1, 0, 0]} />
+      <CustomDirectionalLight color="blue" position={[-1, 0, 0]} />
+      {/* Y */}
+      {/* <CustomDirectionalLight color="yellow" position={[0, 10, 0]} /> */}
+      {/* <CustomDirectionalLight color="green" position={[0, -10, 0]} /> */}
+      {/* Z */}
+      {/* <CustomDirectionalLight color="pink" position={[0, 0, 10]} /> */}
+      {/* <CustomDirectionalLight color="brown" position={[0, 0, -10]} /> */}
+    </>
+  );
+};
+
+export const App = () => {
+  return (
+    <div className="App" style={{ width: "100vw", height: "100vh" }}>
+      <Canvas flat linear>
+        <color attach="background" args={["black"]} />
+        {/* <CustomBox scale={[3, 3, 3]} /> */}
+
+        {/* <CustomOctahedron scale={[2, 1]} /> */}
+        <CustomTorus args={[3, 1, 50, 50]} />
+        <CustomAmbientLight intensity={0.5} />
+        <LightsTest />
+        <CustomOrbitControls />
+      </Canvas>
     </div>
   );
-}
-
-export default App;
+};
